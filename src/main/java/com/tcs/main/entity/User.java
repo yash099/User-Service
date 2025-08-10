@@ -15,7 +15,7 @@ public class User {
 	private Long id;
 	
 	@Column
-	@Pattern(regexp = "^[a-zA-Z]{3,25}$", message = "Invalid name format")
+	@Pattern(regexp = "^[A-Za-z]+(?: [A-Za-z]+){1,3}$", message = "Invalid name format")
 	private String name;
 	
 	@Column
@@ -27,8 +27,8 @@ public class User {
 	private String password;
 	
 	@Column
-	@Pattern(regexp = "^[a-zA-Z]{3,25}$", message = "Invalid city format")
-	private String city;
+	@Pattern(regexp = "^[A-Za-z0-9\\s,.\\-/#()]{5,100}$", message = "Invalid Address format")
+	private String address;
 	
 	@Column
 	@Pattern(regexp = "^[0-9]{10}$", message = "Invalid phoneno format")
@@ -66,12 +66,12 @@ public class User {
 		this.password = password;
 	}
 
-	public String getCity() {
-		return city;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getPhoneNo() {
